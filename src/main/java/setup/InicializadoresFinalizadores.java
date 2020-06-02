@@ -7,9 +7,9 @@ import org.openqa.selenium.WebDriver;
 public interface InicializadoresFinalizadores {
 
     @Before
-    public void criarDriver();
+    public void criandoDriver();
 
     @After
-    public void fecharDrives();
+    public void fechandoDrives();
 
 }

@@ -7,28 +7,20 @@ import org.openqa.selenium.WebDriver;
 import pageObjects.HomePage;
 import setup.Driver;
 import setup.InicializadoresFinalizadores;
-import setup.Teste;
-import static org.junit.Assert.*;
 
-public class MenuGoverno implements InicializadoresFinalizadores {
-
+public class DirecionamentoParaHomeLogo implements InicializadoresFinalizadores {
     WebDriver driver;
 
     @Before
-    public void criandoDriver(){
+    public void criandoDriver() {
         Driver driver = new Driver();
         this.driver = driver.criarDriver();
     }
 
     @Test
-    public void testeBotaoHomeMenuGoverno(){
+    public void testeLogoBotaoHome(){
         HomePage homePage = new HomePage(driver);
-        assertTrue(homePage.verificaBotaoHomeGov());
-    }
-    @Test
-    public void testeItensMenuGov(){
-        HomePage homePage = new HomePage(driver);
-        assertTrue(homePage.verificaItensDaBarraGov());
+        homePage.verificaLogoBotaoHome();
     }
 
     @After
@@ -36,4 +28,6 @@ public class MenuGoverno implements InicializadoresFinalizadores {
         driver.close();
         driver.quit();
     }
+
+
 }
