@@ -7,10 +7,9 @@ import org.openqa.selenium.WebDriver;
 import pageObjects.HomePage;
 import setup.Driver;
 import setup.InicializadoresFinalizadores;
-
 import static org.junit.Assert.*;
 
-public class MenuGoverno implements InicializadoresFinalizadores {
+public class MenuPrincipal implements InicializadoresFinalizadores {
 
     WebDriver driver;
 
@@ -21,18 +20,15 @@ public class MenuGoverno implements InicializadoresFinalizadores {
     }
 
     @Test
-    public void testeBotaoHomeMenuGoverno(){
+    public void TesteBarraBusca(){
         HomePage homePage = new HomePage(driver);
-        assertTrue(homePage.verificaBotaoHomeGov());
-    }
-    @Test
-    public void testeItensMenuGov(){
-        HomePage homePage = new HomePage(driver);
-        assertTrue(homePage.verificaItensDaBarraGov());
+        assertNotEquals(homePage.verificaBarraDeBusca(),"UFSM – Universidade Federal de Santa Maria");
+        assertFalse(homePage.estaPaginaHome(driver));
     }
 
+
     @After
-        public void fechandoDrives(){
+    public void fechandoDrives(){
         driver.close();
         driver.quit();
     }

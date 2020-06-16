@@ -7,6 +7,7 @@ import org.openqa.selenium.WebDriver;
 import pageObjects.HomePage;
 import setup.Driver;
 import setup.InicializadoresFinalizadores;
+import static org.junit.Assert.*;
 
 public class DirecionamentoParaHomeLogo implements InicializadoresFinalizadores {
     WebDriver driver;
@@ -20,7 +21,7 @@ public class DirecionamentoParaHomeLogo implements InicializadoresFinalizadores 
     @Test
     public void testeLogoBotaoHome(){
         HomePage homePage = new HomePage(driver);
-        homePage.verificaLogoBotaoHome();
+        assertTrue(homePage.verificaLogoBotaoHome());
     }
 
     @After

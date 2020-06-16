@@ -21,7 +21,4 @@ public class Driver {
         assertEquals("UFSM – Universidade Federal de Santa Maria", driver.getTitle());
         return driver;
     }
-
-
-
 }
