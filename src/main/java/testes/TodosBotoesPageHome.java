@@ -7,20 +7,21 @@ import org.openqa.selenium.WebDriver;
 import pageObjects.HomePage;
 import setup.Driver;
 import setup.InicializadoresFinalizadores;
+import static org.junit.Assert.*;
 
-public class MenuPrincipal implements InicializadoresFinalizadores {
+public class TodosBotoesPageHome implements InicializadoresFinalizadores {
     WebDriver driver;
 
     @Before
-    public void criandoDriver(){
+    public void criandoDriver() {
         Driver driver = new Driver();
         this.driver = driver.criarDriver();
     }
 
     @Test
-    public void testaMenuPrincipal(){
+    public void todosBotoesPageHome(){
         HomePage homePage = new HomePage(driver);
-        homePage.verificabotaoMenuPrincipal();
+        assertTrue(homePage.verificarBotoesInterativosPaginaInicial());
     }
 
     @After
@@ -28,5 +29,6 @@ public class MenuPrincipal implements InicializadoresFinalizadores {
         driver.close();
         driver.quit();
     }
+
 
 }

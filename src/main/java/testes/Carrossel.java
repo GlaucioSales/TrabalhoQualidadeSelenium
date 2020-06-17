@@ -7,20 +7,22 @@ import org.openqa.selenium.WebDriver;
 import pageObjects.HomePage;
 import setup.Driver;
 import setup.InicializadoresFinalizadores;
+import static org.junit.Assert.*;
 
-public class MenuPrincipal implements InicializadoresFinalizadores {
+public class Carrossel implements InicializadoresFinalizadores {
     WebDriver driver;
 
     @Before
-    public void criandoDriver(){
+    public void criandoDriver() {
         Driver driver = new Driver();
         this.driver = driver.criarDriver();
     }
 
     @Test
-    public void testaMenuPrincipal(){
+    public void testaCarrosselPrincipal(){
         HomePage homePage = new HomePage(driver);
-        homePage.verificabotaoMenuPrincipal();
+        homePage.estaPaginaHome(driver);
+        assertTrue( homePage.verificaFuncionamentoCarrossel());
     }
 
     @After
@@ -28,5 +30,6 @@ public class MenuPrincipal implements InicializadoresFinalizadores {
         driver.close();
         driver.quit();
     }
+
 
 }

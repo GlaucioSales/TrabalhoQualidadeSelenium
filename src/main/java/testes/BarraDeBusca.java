@@ -25,12 +25,10 @@ public class BarraDeBusca implements InicializadoresFinalizadores {
         String minhaBusca = "Ciência da Computação";
         String tituloPaginaUFSM = "UFSM – Universidade Federal de Santa Maria";
         HomePage homePage = new HomePage(driver);
-        assertNotEquals(homePage.verificaBarraDeBusca(minhaBusca),tituloPaginaUFSM);
+        assertNotEquals(homePage.utilizadorDaBarraDeBusca(minhaBusca),tituloPaginaUFSM);
         assertFalse(homePage.estaPaginaHome(driver));
         PaginaDeBusca paginaDeBusca = new PaginaDeBusca(driver);
         assertTrue( paginaDeBusca.nomeDoCursoBuscado(minhaBusca));
-
-
     }
 
 

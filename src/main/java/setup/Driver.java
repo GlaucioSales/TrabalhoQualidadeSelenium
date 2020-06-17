@@ -7,6 +7,8 @@ import static org.junit.Assert.*;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
+import java.net.HttpURLConnection;
+import java.net.URL;
 import java.util.concurrent.TimeUnit;
 
 public class Driver {
@@ -21,4 +23,5 @@ public class Driver {
         assertEquals("UFSM – Universidade Federal de Santa Maria", driver.getTitle());
         return driver;
     }
+
 }
