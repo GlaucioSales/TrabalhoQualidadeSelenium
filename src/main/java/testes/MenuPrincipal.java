@@ -4,13 +4,10 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.WebDriver;
-import pageObjects.HomePage;
 import setup.Driver;
 import setup.InicializadoresFinalizadores;
-import static org.junit.Assert.*;
 
 public class MenuPrincipal implements InicializadoresFinalizadores {
-
     WebDriver driver;
 
     @Before
@@ -20,10 +17,8 @@ public class MenuPrincipal implements InicializadoresFinalizadores {
     }
 
     @Test
-    public void TesteBarraBusca(){
-        HomePage homePage = new HomePage(driver);
-        assertNotEquals(homePage.verificaBarraDeBusca(),"UFSM – Universidade Federal de Santa Maria");
-        assertFalse(homePage.estaPaginaHome(driver));
+    public void testaMenuPrincipal(){
+
     }
 
 
@@ -32,4 +27,5 @@ public class MenuPrincipal implements InicializadoresFinalizadores {
         driver.close();
         driver.quit();
     }
+
 }

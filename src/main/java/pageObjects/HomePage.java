@@ -34,6 +34,10 @@ public class HomePage extends Teste {
     @FindBy(how = How.CSS, using = "#abusca")
     private WebElement caixaDeBusca;
 
+    @FindBy(how = How.CSS, using = ".carousel-control-prev-icon")
+    private WebElement botaoCarrossel;
+
+
 
 
     public HomePage(WebDriver driver){
@@ -49,6 +53,7 @@ public class HomePage extends Teste {
             return  false;
         }
     }
+
     public boolean verificaItensDaBarraGov(){
         Collator collator = Collator.getInstance(new Locale("pt","BR"));
         for (int i = 0; i < buttonsGov.size() ; i++) {
@@ -72,9 +77,11 @@ public class HomePage extends Teste {
     }
 
     public boolean verificaLogoBotaoHome(){
+        Collator collator = Collator.getInstance(new Locale("pt","BR"));
+
         if (buttonLogoHome.isDisplayed()){
             buttonLogoHome.click();
-            if (buttonHomeGov.getText().equals("UFSM – Universidade Federal de Santa Maria")){
+            if (driver.getTitle().equals("UFSM – Universidade Federal de Santa Maria")){
                 return true;
             }else{
                 return false;
@@ -88,22 +95,18 @@ public class HomePage extends Teste {
         return false;
     }
 
-    public String verificaBarraDeBusca(){
+    public String verificaBarraDeBusca(String nomeDaBusca){
 
         caixaDeBusca.click();
-        caixaDeBusca.sendKeys("Ciência da Computação");
+        caixaDeBusca.sendKeys(nomeDaBusca);
         caixaDeBusca.submit();
         esperaXSegundos(4);
         return driver.getTitle();
 
-
-
     }
+
     public boolean estaPaginaHome(WebDriver driver){
         esperaXSegundos(5);
-        System.out.println(driver.getTitle());
-        System.out.println(driver.getTitle().equals("UFSM – Universidade Federal de Santa Maria"));
-        System.out.println(" ");
         return driver.getTitle().equals("UFSM – Universidade Federal de Santa Maria");
     }
 
